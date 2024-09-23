@@ -1,6 +1,6 @@
 package com.vegetable.practice.repository;
 
-import enity.Cat;
+import com.vegetable.practice.enity.Cat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
