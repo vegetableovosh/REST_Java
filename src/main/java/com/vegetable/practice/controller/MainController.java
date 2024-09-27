@@ -4,6 +4,7 @@ package com.vegetable.practice.controller;
 import com.vegetable.practice.DTO.CatDTO;
 import com.vegetable.practice.entity.Cat;
 import com.vegetable.practice.repository.CatRepository;
+import com.vegetable.practice.service.MailSenderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.List;
 public class MainController {
 
     private final CatRepository catRepository;
+    private final MailSenderService mailSender;
 
     @Operation(
             summary = "Post new cat in DB",
@@ -58,6 +60,17 @@ public class MainController {
             return "No such row";
         }
         return catRepository.save(cat).toString();
+    }
+
+    @GetMapping("/hello")
+    public void sayHelloFromCat(@RequestParam int id){
+        var cat = catRepository.findById(id).orElseThrow();
+
+        mailSender.send(
+                "dany.titoff2016@yandex.ru",
+                "Hello From Kitten",
+                "Hello, my name is " + cat.getName() + ". Have a nice day!!!"
+        );
     }
 
 }

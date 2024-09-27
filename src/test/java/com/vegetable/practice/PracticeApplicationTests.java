@@ -13,13 +13,4 @@ class PracticeApplicationTests {
 
 	}
 
-	@Test
-	void concatTest(){
-
-		String stringOne = "Hello ";
-		String stringTwo = "World";
-
-		assertEquals("Hello World", stringOne + stringTwo);
-	}
-
 }
