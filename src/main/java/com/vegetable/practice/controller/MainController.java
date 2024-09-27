@@ -26,17 +26,14 @@ public class MainController {
             description = "Post DTO cat and build that and save entity in base"
     )
     @PostMapping("/api/add")
-    public void addCat(@RequestBody CatDTO catDTO) {
-        log.info(
-                "New row: " + catRepository.save(
-                        Cat.builder()
-                                .id(1)
-                            .age(catDTO.getAge())
-                            .weight(catDTO.getWeight())
-                            .name(catDTO.getName())
-                            .build())
+    public Cat addCat(@RequestBody CatDTO catDTO) {
+        return catRepository.save(
+                Cat.builder()
+                        .age(catDTO.getAge())
+                        .weight(catDTO.getWeight())
+                        .name(catDTO.getName())
+                        .build()
         );
-
     }
 
     @SneakyThrows
