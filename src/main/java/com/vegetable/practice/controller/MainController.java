@@ -1,17 +1,14 @@
 package com.vegetable.practice.controller;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vegetable.practice.GTO.CatDTO;
-import com.vegetable.practice.enity.Cat;
+import com.vegetable.practice.DTO.CatDTO;
+import com.vegetable.practice.entity.Cat;
 import com.vegetable.practice.repository.CatRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +30,7 @@ public class MainController {
         log.info(
                 "New row: " + catRepository.save(
                         Cat.builder()
+                                .id(1)
                             .age(catDTO.getAge())
                             .weight(catDTO.getWeight())
                             .name(catDTO.getName())

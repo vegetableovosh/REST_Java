@@ -1,4 +1,4 @@
-package com.vegetable.practice.GTO;
+package com.vegetable.practice.DTO;
 
 import lombok.AccessLevel;
 import lombok.Data;

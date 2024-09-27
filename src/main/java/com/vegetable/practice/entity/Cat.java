@@ -1,4 +1,4 @@
-package com.vegetable.practice.enity;
+package com.vegetable.practice.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
